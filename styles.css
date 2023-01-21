@@ -1,0 +1,54 @@
+h1,
+button {
+    font-family: 'Roboto', sans-serif;
+    margin: 2%;
+}
+
+button {
+    width: 110%;
+    padding: 3%;
+}
+
+section {
+    padding: 1%;
+    margin: 1%;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+.showCountry {
+    border: 0.7px solid rgb(97, 92, 92);
+    width: 50%;
+    margin: 2%;
+    text-align: center;
+}
+
+.country {
+    color: rgb(0, 0, 0);
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgb(122, 198, 241);
+    padding: 1%;
+    padding: 5%;
+}
+
+.old {
+    color: rgb(221, 133, 82);
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgb(233, 241, 122);
+    padding: 1%;
+    border: 0.5px solid rgb(97, 92, 92);
+    padding: 5%;
+}
+
+@media (max-width: 650px) {
+    .showCountry {
+        width: 95%;
+    }
+}
+
+@media (max-width: 950px) {
+    .showCountry {
+        width: 80%;
+    }
+}
