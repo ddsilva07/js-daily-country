@@ -16,6 +16,9 @@ section {
     flex-flow: column wrap;
     align-items: center;
 }
+a{
+    text-decoration: none;
+}
 
 .showCountry {
     border: 0.7px solid rgb(97, 92, 92);

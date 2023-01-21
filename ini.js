@@ -15,6 +15,19 @@ function renderCountry(numRandom){
     textCreated.classList.add('country')
     textCreated.setAttribute('id','new')
 
+    const linkPlaylist = document.createElement('a');
+
+    linkPlaylist.textContent = " 🎶 "
+    linkPlaylist.href = buildUrlMusicSearch(countries[numRandom].name)
+    linkPlaylist.target = "_blank"
+
+    const linkVideos = document.createElement('a');    
+    linkVideos.textContent = " 📽️ "
+    linkVideos.href = buildUrlVideosSearch(countries[numRandom].name)
+    linkVideos.target = "_blank"
+
+    textCreated.append(linkPlaylist)
+    textCreated.append(linkVideos)
     sect.appendChild(textCreated)
 
 }
@@ -24,6 +37,21 @@ function changeStyle(dom){
         test[i].classList = 'old'
         test[i].setAttribute('id','old')
     }
+}
+
+function buildUrlMusicSearch(country){
+    // https://open.spotify.com/search/North%20Macedonia/playlists
+    const encondedCountry = encodeURI(country)
+    const completeUrl = 'https://open.spotify.com/search/' + encondedCountry + '/playlists';
+    return completeUrl
+
+}
+function buildUrlVideosSearch(country){
+    // https://www.youtube.com/results?search_query=travel+brunei
+    const encondedExpression = encodeURI('tips for traveling to ' + country)
+    const completeUrl = 'https://www.youtube.com/results?search_query=' + encondedExpression;
+    return completeUrl
+
 }
 
 // All countries length 252
