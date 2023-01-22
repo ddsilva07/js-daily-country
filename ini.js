@@ -56,22 +56,22 @@ function changeStyle(dom){
 function buildUrlMusicSearch(country){
     // https://open.spotify.com/search/North%20Macedonia/playlists
     const encondedCountry = encodeURI(country)
-    const completeUrl = 'https://open.spotify.com/search/' + encondedCountry + '/playlists';
-    return completeUrl
+    const completeUrl = 'https://open.spotify.com/search/' + encondedCountry;
+    return completeUrl.toLowerCase()
 
 }
 function buildUrlVideosSearch(country){
     // https://www.youtube.com/results?search_query=travel+brunei
     const encondedExpression = encodeURI('tips for traveling to ' + country)
     const completeUrl = 'https://www.youtube.com/results?search_query=' + encondedExpression;
-    return completeUrl
+    return completeUrl.toLowerCase()
 }
 
 function buildUrlInformations(country){
     // https://www.atlasobscura.com/things-to-do/mexico
     let completeUrl = 'https://www.atlasobscura.com/things-to-do/' + toNormalForm(country.toLowerCase());
     completeUrl = completeUrl.replaceAll(' ','-')
-    return completeUrl
+    return completeUrl.toLowerCase()
 }
 
 function buildUrFlights(country){
