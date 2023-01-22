@@ -11,7 +11,7 @@ function renderCountry(numRandom){
     const textCreated = document.createElement('p');
     
     //get country from array
-    textCreated.textContent = countries[numRandom].name + " | " + countries[numRandom].capital + " | " + countries[numRandom].continent;
+    textCreated.textContent = countries[numRandom].name + " | " + countries[numRandom].capital + " | " + countries[numRandom].continent ;
     textCreated.classList.add('country')
     textCreated.setAttribute('id','new')
 
@@ -25,9 +25,23 @@ function renderCountry(numRandom){
     linkVideos.textContent = " 📽️ "
     linkVideos.href = buildUrlVideosSearch(countries[numRandom].name)
     linkVideos.target = "_blank"
+    
+    const linkInformations = document.createElement('a');    
+    linkInformations.textContent = " 📰 "
+    linkInformations.href = buildUrlInformations(countries[numRandom].name)
+    linkInformations.target = "_blank"
+    
+    const linkFligths = document.createElement('a');    
+    linkFligths.textContent = " ✈️ "
+    linkFligths.href = buildUrFlights(countries[numRandom].name)
+    linkFligths.target = "_blank"
 
+    textCreated.append(document.createElement('br'))
+    textCreated.append(document.createElement('br'))
     textCreated.append(linkPlaylist)
     textCreated.append(linkVideos)
+    textCreated.append(linkInformations)
+    textCreated.append(linkFligths)
     sect.appendChild(textCreated)
 
 }
@@ -51,7 +65,24 @@ function buildUrlVideosSearch(country){
     const encondedExpression = encodeURI('tips for traveling to ' + country)
     const completeUrl = 'https://www.youtube.com/results?search_query=' + encondedExpression;
     return completeUrl
+}
 
+function buildUrlInformations(country){
+    // https://www.atlasobscura.com/things-to-do/mexico
+    let completeUrl = 'https://www.atlasobscura.com/things-to-do/' + toNormalForm(country.toLowerCase());
+    completeUrl = completeUrl.replaceAll(' ','-')
+    return completeUrl
+}
+
+function buildUrFlights(country){
+    // https://www.google.com/search?q=flights+nicaragua    
+    let completeUrl = 'https://www.google.com/search?q=flights+' + toNormalForm(country.toLowerCase());
+    completeUrl = completeUrl.replaceAll(' ','+')
+    return completeUrl
+}
+
+function toNormalForm(str) {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
 
 // All countries length 252
